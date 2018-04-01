@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity(), BookView { // View
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        setSupportActionBar(toolbar)
 //        bookRepository = MockBookRepository()
         bookRepository = OnlineBookRepository()
         bookAdapter = TwoLineArrayAdapter(this, ArrayList())
