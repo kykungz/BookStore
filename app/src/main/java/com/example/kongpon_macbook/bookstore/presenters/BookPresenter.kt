@@ -15,7 +15,6 @@ class BookPresenter(
 
     override fun update(obj: Observable?, arg: Any?) {
         if(obj == repository) {
-            println("updated: " + repository.getBooks())
             view.setBookList(repository.getBooks())
         }
     }

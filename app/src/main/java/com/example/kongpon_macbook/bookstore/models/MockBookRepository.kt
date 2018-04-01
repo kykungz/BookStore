@@ -1,6 +1,6 @@
 package com.example.kongpon_macbook.bookstore.models
 
-class MockBookRepository : BookRepository() {
+class MockBookRepository : FilterableBookRepository() {
     private val bookList = ArrayList<Book>()
 
     override fun loadAllBooks() {

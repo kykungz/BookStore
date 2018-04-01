@@ -6,7 +6,7 @@ import org.json.JSONObject
 import java.net.URL
 import java.util.ArrayList
 
-class OnlineBookRepository : BookRepository() {
+class OnlineBookRepository : FilterableBookRepository() {
     private val bookList = ArrayList<Book>()
 
     override fun loadAllBooks() {

@@ -23,7 +23,7 @@ class TwoLineArrayAdapter(
         val text1: TextView = view.findViewById(android.R.id.text1)
         val text2: TextView = view.findViewById(android.R.id.text2)
         val book: Book = books.get(position)
-        text1.text = "[${book.id}] ${book.title}"
+        text1.text = book.title
         text2.text = "${book.price} THB"
         return view
     }
