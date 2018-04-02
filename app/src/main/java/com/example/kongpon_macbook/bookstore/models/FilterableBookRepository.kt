@@ -4,11 +4,15 @@ import java.util.stream.Collectors
 
 abstract class FilterableBookRepository : BookRepository() {
 
-    private val bookList = ArrayList<Book>()
+    protected val bookList = ArrayList<Book>()
+
+    override fun getBooks(): java.util.ArrayList<Book> {
+        return bookList
+    }
 
     fun filter(keyword: String): List<Book> {
-        return bookList.filter { book: Book ->
-            book.title.contains(keyword) || book.publicationYear.toString().contains(keyword)
-        }
+        return bookList.filter({ book: Book ->
+            book.title.contains(keyword, true) || book.publicationYear.toString().contains(keyword, true)
+        })
     }
 }

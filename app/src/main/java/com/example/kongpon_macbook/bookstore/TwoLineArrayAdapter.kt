@@ -1,5 +1,6 @@
 package com.example.kongpon_macbook.bookstore
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.View
 import android.view.ViewGroup
@@ -24,7 +25,7 @@ class TwoLineArrayAdapter(
         val text2: TextView = view.findViewById(android.R.id.text2)
         val book: Book = books.get(position)
         text1.text = book.title
-        text2.text = "${book.price} THB"
+        text2.text = "$${book.price} USD"
         return view
     }
 }

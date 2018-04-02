@@ -14,8 +14,7 @@
         android:background="?attr/colorPrimary"
         android:elevation="4dp"
         android:minHeight="?attr/actionBarSize"
-        android:theme="@style/ThemeOverlay.AppCompat"
-        app:titleTextColor="#fff" />
+        android:theme="@style/AppTheme.Toolbar" />
 
     <ListView
         android:id="@+id/bookListView"

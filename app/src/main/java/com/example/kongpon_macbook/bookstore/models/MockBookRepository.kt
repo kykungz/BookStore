@@ -1,7 +1,6 @@
 package com.example.kongpon_macbook.bookstore.models
 
 class MockBookRepository : FilterableBookRepository() {
-    private val bookList = ArrayList<Book>()
 
     override fun loadAllBooks() {
         bookList.clear()
@@ -12,7 +11,4 @@ class MockBookRepository : FilterableBookRepository() {
         notifyObservers()
     }
 
-    override fun getBooks(): ArrayList<Book> {
-        return bookList
-    }
 }

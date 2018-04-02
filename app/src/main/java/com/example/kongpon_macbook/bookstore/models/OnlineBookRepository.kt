@@ -1,13 +1,13 @@
 package com.example.kongpon_macbook.bookstore.models
 
+import android.annotation.SuppressLint
 import android.os.AsyncTask
 import org.json.JSONArray
 import org.json.JSONObject
 import java.net.URL
 import java.util.ArrayList
 
-class OnlineBookRepository : BookRepository() {
-    val bookList = ArrayList<Book>()
+class OnlineBookRepository : FilterableBookRepository() {
 
     override fun loadAllBooks() {
         val url = URL("https://theory.cpe.ku.ac.th/~jittat/courses/sw-spec/ebooks/books.json")
@@ -15,10 +15,7 @@ class OnlineBookRepository : BookRepository() {
         loadDataFromURL.execute(url)
     }
 
-    override fun getBooks(): ArrayList<Book> {
-        return bookList
-    }
-
+    @SuppressLint("StaticFieldLeak")
     private inner class URLDownloadTask : AsyncTask<URL, Void, ArrayList<Book>>() {
         override fun doInBackground(vararg params: URL): ArrayList<Book>? {
             val books: ArrayList<Book> = ArrayList()
@@ -49,6 +46,5 @@ class OnlineBookRepository : BookRepository() {
             setChanged()
             notifyObservers()
         }
-
     }
 }
