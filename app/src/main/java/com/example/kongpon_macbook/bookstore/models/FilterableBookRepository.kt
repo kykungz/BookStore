@@ -1,12 +1,10 @@
 package com.example.kongpon_macbook.bookstore.models
 
-import java.util.stream.Collectors
-
 abstract class FilterableBookRepository : BookRepository() {
 
-    protected val bookList = ArrayList<Book>()
+    protected val bookList: ArrayList<Book> = ArrayList()
 
-    override fun getBooks(): java.util.ArrayList<Book> {
+    override fun getBooks(): ArrayList<Book> {
         return bookList
     }
 

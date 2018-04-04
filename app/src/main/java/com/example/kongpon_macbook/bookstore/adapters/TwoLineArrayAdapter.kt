@@ -1,6 +1,5 @@
-package com.example.kongpon_macbook.bookstore
+package com.example.kongpon_macbook.bookstore.adapters
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.view.View
 import android.view.ViewGroup
