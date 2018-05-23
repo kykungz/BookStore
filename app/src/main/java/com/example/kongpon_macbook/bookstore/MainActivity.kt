@@ -1,16 +1,20 @@
 package com.example.kongpon_macbook.bookstore
 
+import android.app.SearchManager
+import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.TabLayout
+import android.support.v4.app.Fragment
 import android.support.v7.widget.SearchView
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.Toast
 import com.example.kongpon_macbook.bookstore.adapters.TabPagerAdapter
 import com.example.kongpon_macbook.bookstore.fragments.FilterableFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import com.example.kongpon_macbook.bookstore.models.BookRepository
-import com.example.kongpon_macbook.bookstore.models.MockBookRepository
 import com.example.kongpon_macbook.bookstore.models.MyBookRepository
 import com.example.kongpon_macbook.bookstore.models.OnlineBookRepository
 import com.example.kongpon_macbook.bookstore.presenters.BookPresenter
@@ -49,7 +53,9 @@ class MainActivity : AppCompatActivity(), FilterableFragment.OnFragmentInteracti
     override fun onListItemClicked(tabNumber: Int, position: Int) {
         when (tabNumber) {
             BOOKLIST_TAB -> {
-                myBookRepository.addBook(bookListRepository.getBooks().get(position))
+                val book = bookListRepository.getBooks().get(position)
+                myBookRepository.addBook(book)
+                Toast.makeText(this, "Added \"${book.title}\"", Toast.LENGTH_SHORT).show()
             }
             MYBOOK_TAB -> {
             }
@@ -71,7 +77,8 @@ class MainActivity : AppCompatActivity(), FilterableFragment.OnFragmentInteracti
                 supportFragmentManager,
                 tabs.tabCount,
                 bookListFragment,
-                myBookFragment
+                myBookFragment,
+                Fragment()
         )
 
         pager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
